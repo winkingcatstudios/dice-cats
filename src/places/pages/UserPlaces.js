@@ -25,8 +25,8 @@ const DUMMY_PLACES = [
       "https://cdn.britannica.com/08/187508-050-D6FB5173/Shanghai-Tower-Gensler-San-Francisco-world-Oriental-2015.jpg",
     address: "20 W 34th St, New York, NY 10001",
     location: {
-      lat: 40.7484405,
-      lng: -73.9878584,
+      lat: 40.74897644458502, 
+      lng: -73.98566931762161,
     },
     creator: "u2",
   },

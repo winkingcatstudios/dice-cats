@@ -43,10 +43,6 @@ const PlaceItem = (props) => {
               "&t=&z=15&ie=UTF8&iwloc=&output=embed"
             }
           ></iframe>
-          <script
-            type="text/javascript"
-            src="https://embedmaps.com/google-maps-authorization/script.js?id=5a33be79e53caf0a07dfec499abf84b7b481f165"
-          ></script>
         </div>
       </Modal>
       <li className="place-item">

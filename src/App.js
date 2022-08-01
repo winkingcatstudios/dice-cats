@@ -29,6 +29,7 @@ const App = () => {
         <Route path="/:userId/places" element={<UserPlaces />} />
         <Route path="/places/new" element={<NewPlace />} />
         <Route path="/places/:placeId" element={<UpdatePlace />} />
+        <Route path="/auth" element={<Users />} />
       </React.Fragment>
     );
   } else {

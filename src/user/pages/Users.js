@@ -1,19 +1,40 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import UsersList from "../components/UsersList";
+import ErrorModal from "../../shared/components/UIElements/ErrorModal";
+import LoadingSpinner from "../../shared/components/UIElements/LoadingSpinner";
+import { useHttpClient } from "../../shared/hooks/http-hook";
 
 const Users = () => {
-  const USERS = [
-    {
-      id: "u1",
-      image:
-        "https://cdn.vox-cdn.com/thumbor/EoacRCnpK9DYJB7AHGjDfDJXNus=/0x0:1024x1024/920x613/filters:focal(431x431:593x593):format(webp)/cdn.vox-cdn.com/uploads/chorus_image/image/71156056/DALL_E_a_photo_of_an_astronaut_riding_a_horse_3.0.png",
-      name: "Wink",
-      places: 3,
-    },
-  ];
+  const { isLoading, error, sendRequest, clearError } = useHttpClient();
+  const [loadedUsers, setLoadedUsers] = useState();
 
-  return <UsersList items={USERS} />;
+  useEffect(() => {
+    const fetchUsers = async () => {
+      try {
+        const responseData = await sendRequest(
+          "http://localhost:5000/api/users"
+        );
+
+        setLoadedUsers(responseData.users);
+      } catch (err) {
+        // caught in http-hook
+      }
+    };
+    fetchUsers();
+  }, [sendRequest]);
+
+  return (
+    <React.Fragment>
+      <ErrorModal error={error} onClear={clearError} />
+      {isLoading && (
+        <div className="center">
+          <LoadingSpinner />
+        </div>
+      )}
+      {!isLoading && loadedUsers && <UsersList items={loadedUsers} />}
+    </React.Fragment>
+  );
 };
 
 export default Users;

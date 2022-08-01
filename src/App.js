@@ -38,6 +38,7 @@ const App = () => {
         <Route path="/" element={<Users />} />
         <Route path="/:userId/places" element={<UserPlaces />} />
         <Route path="/auth" element={<Auth />} />
+        <Route path="/places/new" element={<Auth />} />
       </React.Fragment>
     );
   }

@@ -8,6 +8,7 @@ import LoadingSpinner from "../../shared/components/UIElements/LoadingSpinner";
 import {
   VALIDATOR_EMAIL,
   VALIDATOR_MINLENGTH,
+  VALIDATOR_MAXLENGTH,
   VALIDATOR_REQUIRE,
 } from "../../shared/util/validators";
 import { useForm } from "../../shared/hooks/form-hook";
@@ -134,7 +135,7 @@ const Auth = () => {
             id="password"
             type="password"
             label="Password"
-            validators={[VALIDATOR_MINLENGTH(12)]}
+            validators={[VALIDATOR_MINLENGTH(12), VALIDATOR_MAXLENGTH(127)]}
             errorText="Please enter a valid password (at least 12 characters)"
             onInput={inputHandler}
           />

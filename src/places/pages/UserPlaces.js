@@ -36,9 +36,9 @@ const UserPlaces = () => {
     <React.Fragment>
       <ErrorModal error={error} onClear={clearError} />
       {isLoading && (
-        <dib className="center">
+        <div className="center">
           <LoadingSpinner />
-        </dib>
+        </div>
       )}
       {!isLoading && loadedPlaces && (
         <PlaceList items={loadedPlaces} onDeletePlace={placeDeletedHandler} />

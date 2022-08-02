@@ -81,7 +81,7 @@ const Auth = () => {
             "content-Type": "application/json",
           }
         );
-        auth.login(responseData.userId);
+        auth.login(responseData.userId, responseData.token);
       } catch (err) {
         // caught in http-hook
       }
@@ -100,7 +100,7 @@ const Auth = () => {
           formData
         );
 
-        auth.login(responseData.userId);
+        auth.login(responseData.userId, responseData.token);
       } catch (err) {
         // caught in http-hook
       }

@@ -10,10 +10,11 @@ import MainNavigation from "./shared/components/Navigation/MainNavigation";
 import { AuthContext } from "./shared/Context/auth-context";
 
 const App = () => {
-  const [token, setToken] = useState();
+  const [token, setToken] = useState(false);
   const [userId, setUserId] = useState(false);
 
   const login = useCallback((userId, token) => {
+    
     setToken(token);
     setUserId(userId);
   }, []);
